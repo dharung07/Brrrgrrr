@@ -17,7 +17,7 @@ function GlobalState({ children }) {
 
     useEffect(() => {
         setLoadIngredients(true);
-        axios.get('http://localhost:5000/ingredients')
+        axios.get('https://brrrgrrr-backend.onrender.com')
             .then(res => {
                 setIngredients(res?.data?.data);
                 setLoadIngredients(false);
