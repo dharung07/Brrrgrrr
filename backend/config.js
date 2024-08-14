@@ -1,1 +1,0 @@
-export const MongoDBURL = "mongodb+srv://dharun:IoY3YHqffgDbS00p@brrrgrrr.bks9f.mongodb.net/ingredients?retryWrites=true&w=majority&appName=Brrrgrrr";

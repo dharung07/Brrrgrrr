@@ -15,17 +15,27 @@ function GlobalState({ children }) {
 
     const [orders, setOrders] = useState([]);
 
+    async function fetchIngredients() {
+        try {
+            const response = await fetch('https://brrrgrrr-backend.onrender.com');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            setIngredients(data?.data);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoadIngredients(false);
+        }
+    }
+
     useEffect(() => {
         setLoadIngredients(true);
-        axios.get('https://brrrgrrr-backend.onrender.com')
-            .then(res => {
-                setIngredients(res?.data?.data);
-                setLoadIngredients(false);
-            })
-            .catch(e => {
-                console.log(e);
-                setLoadIngredients(false);
-            });
+        fetchIngredients();
     }, [])
 
     useEffect(() => {

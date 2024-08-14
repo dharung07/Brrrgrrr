@@ -1,11 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
-import { MongoDBURL } from "./config.js";
 import ingredientsRoute from "./routes/ingredientsRoute.js";
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const MongoDBURL = process.env.MONGODB_URL;
 
 // middleware
 app.use(express.json());
@@ -19,6 +22,7 @@ app.get('/', (req, res) => {
     console.log(req);
     return res.status(234).send('Welcome');
 })
+
 
 mongoose
     .connect(MongoDBURL)
