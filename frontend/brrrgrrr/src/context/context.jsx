@@ -17,14 +17,14 @@ function GlobalState({ children }) {
 
     async function fetchIngredients() {
         try {
-            const response = await fetch('https://brrrgrrr-backend.onrender.com');
+            const response = await fetch('https://brrrgrrr-backend.onrender.com/ingredients');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
             const data = await response.json();
-
+            console.log(data);
             setIngredients(data?.data);
         } catch (error) {
             console.log(error);
