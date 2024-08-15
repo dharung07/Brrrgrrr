@@ -13,7 +13,7 @@ export default function IngredientsGrid() {
             <div className='flex flex-col gap-3 bg-[#D5ED9F]'>
                 {
                     loadIngredients ?
-                        <p className='text-center bg-[#dcecb9]] text-gray-600'>Loading...</p> :
+                        <p className='text-center bg-[#dcecb9] text-gray-600'>Loading...</p> :
                         ingredients && ingredients.map((item, index) =>
                             <Ingredients
                                 key={index}
